@@ -1,300 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendista - Men's Fashion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trendista - Men's Fashion</title>
+<style>
+/* Global */
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { background:#f7f5f2; }
 
-        body {
-            background-color: #f7f5f2;
-        }
+/* Header */
+header { display:flex; justify-content:space-between; align-items:center; padding:15px 20px; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:100; }
+header .logo { font-size:22px; font-weight:700; color:#5c4033; }
+header nav { display:flex; flex-wrap:wrap; }
+header nav a { margin-left:15px; text-decoration:none; color:#333; font-weight:500; font-size:14px; }
+header nav a:hover { color:#5c4033; }
 
-        /* Header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+/* Hero */
+.hero { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; padding:30px 15px; background:#f5efe8; }
+.hero .text { max-width:500px; margin-bottom:20px; text-align:center; }
+.hero h1 { font-size:28px; margin-bottom:15px; color:#5c4033; }
+.hero p { font-size:16px; margin-bottom:20px; }
+.hero button { padding:10px 20px; background:#5c4033; color:#fff; border:none; border-radius:5px; cursor:pointer; font-size:14px; }
+.hero button:hover { background:#7b5743; }
+.hero img { width:100%; max-width:300px; border-radius:10px; }
 
-        header .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #5c4033;
-        }
+/* Categories */
+.categories { display:flex; flex-wrap:wrap; justify-content:center; margin:30px 0; }
+.category-card { background:#fff; width:45%; margin:10px; text-align:center; border-radius:10px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.05); transition:transform 0.3s; }
+.category-card:hover { transform:translateY(-3px); }
+.category-card img { width:100%; height:150px; object-fit:cover; }
+.category-card h3 { padding:10px 0; color:#5c4033; font-size:16px; }
 
-        header nav a {
-            margin-left: 25px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
+/* Best Sellers */
+.best-sellers { max-width:500px; margin:30px auto; padding:0 15px; }
+.best-sellers h2 { text-align:center; margin-bottom:20px; color:#5c4033; font-size:20px; }
+.products { display:flex; flex-wrap:wrap; justify-content:center; }
+.product-card { background:#fff; width:45%; margin:10px; border-radius:10px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.05); transition:transform 0.3s; text-align:center; }
+.product-card:hover { transform:translateY(-3px); }
+.product-card img { width:100%; height:150px; object-fit:cover; }
+.product-card .info { padding:10px; }
+.product-card .info h4 { margin-bottom:5px; font-size:14px; color:#333; }
+.product-card .info p { color:#5c4033; font-weight:500; font-size:13px; }
+.product-card .info button { margin-top:5px; padding:6px 12px; background:#5c4033; color:#fff; border:none; border-radius:5px; cursor:pointer; font-size:12px; }
+.product-card .info button:hover { background:#7b5743; }
 
-        header nav a:hover {
-            color: #5c4033;
-        }
+/* Footer */
+footer { background:#5c4033; color:#fff; padding:20px; text-align:center; font-size:12px; }
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 50px;
-            background-color: #f5efe8;
-        }
-
-        .hero .text {
-            max-width: 50%;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #5c4033;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
-
-        .hero button {
-            padding: 12px 25px;
-            background-color: #5c4033;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-weight: 500;
-            border-radius: 5px;
-        }
-
-        .hero button:hover {
-            background-color: #7b5743;
-        }
-
-        .hero img {
-            max-width: 45%;
-            border-radius: 10px;
-        }
-
-        /* Categories Section */
-        .categories {
-            display: flex;
-            justify-content: space-around;
-            margin: 50px auto;
-            max-width: 1200px;
-        }
-
-        .category-card {
-            background-color: #fff;
-            width: 22%;
-            text-align: center;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .category-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .category-card h3 {
-            padding: 15px 0;
-            color: #5c4033;
-        }
-
-        /* Best Sellers */
-        .best-sellers {
-            max-width: 1200px;
-            margin: 50px auto;
-        }
-
-        .best-sellers h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #5c4033;
-        }
-
-        .products {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .product-card {
-            background-color: #fff;
-            width: 23%;
-            margin-bottom: 25px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-
-        .product-card .info {
-            padding: 15px;
-        }
-
-        .product-card .info h4 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .product-card .info p {
-            color: #5c4033;
-            font-weight: 500;
-        }
-
-        .product-card .info button {
-            margin-top: 10px;
-            padding: 8px 15px;
-            background-color: #5c4033;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .product-card .info button:hover {
-            background-color: #7b5743;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #5c4033;
-            color: #fff;
-            padding: 25px 50px;
-            text-align: center;
-        }
-
-    </style>
+/* Media Queries for Mobile */
+@media(max-width:480px){
+    header { flex-direction:column; align-items:flex-start; }
+    header nav { margin-top:10px; }
+    .hero h1 { font-size:22px; }
+    .hero p { font-size:14px; }
+    .categories, .products { width:100%; flex-direction:column; align-items:center; }
+    .category-card, .product-card { width:90%; }
+    .hero img { max-width:250px; }
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Trendista</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Shop</a>
-            <a href="#">Collections</a>
-            <a href="#">Blog</a>
-            <a href="#">Contact</a>
-            <a href="#">Cart</a>
-        </nav>
-    </header>
+<header>
+    <div class="logo">Trendista</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#best">Shop</a>
+        <a href="#cat">Collections</a>
+        <a href="#">Cart</a>
+    </nav>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="text">
-            <h1>New Arrivals: Men's Fashion</h1>
-            <p>Upgrade your wardrobe with premium shawls, Chelsea shoes, waistcoats, and more.</p>
-            <button>Shop Now</button>
-        </div>
-        <img src="fabrics.jpg.jpeg" alt="Men's Fashion">
-    </section>
+<section class="hero">
+    <div class="text">
+        <h1>New Arrivals: Men's Fashion</h1>
+        <p>Upgrade your wardrobe with premium shawls, Chelsea shoes, waistcoats, and more.</p>
+        <button onclick="window.location.href='#best'">Shop Now</button>
+    </div>
+    <img src="fabrics.jpg.jpeg" alt="Men's Fashion">
+</section>
 
-    <!-- Categories -->
-    <section class="categories">
-        <div class="category-card">
-            <a href="shawl.html">
-  <img src="fabrics2.jpg.jpeg" alt="Shawl">
-  <h3>Shawl</h3>
-</a>
-        </div>
-        <div class="category-card">
-            <a href="chelsea.html">
-                <img src="chlsea1.jpg.jpg" alt="Chelsea Shoes">
+<section class="categories" id="cat">
+    <div class="category-card">
+        <a href="shawl.html" target="_blank">
+            <img src="shawl.jpg.jpeg" alt="Shawls">
+            <h3>Shawls</h3>
+        </a>
+    </div>
+    <div class="category-card">
+        <a href="chelsea.html" target="_blank">
+            <img src="chlsea1.jpg.jpg" alt="Chelsea Shoes">
             <h3>Chelsea Shoes</h3>
-            </a>
-            
-        </div>
-        <div class="category-card">
-            <a href="waistcoat.html">
-                <img src="wasitcoat.jpg.jpeg" alt="Waistcoats">
+        </a>
+    </div>
+    <div class="category-card">
+        <a href="waistcoat.html" target="_blank">
+            <img src="wasitcoat.jpg.jpeg" alt="Waistcoats">
             <h3>Waistcoats</h3>
-            </a>
-            
-        </div>
-        <div class="category-card">
-            <a href="fabrics.html">
-                <img src="fabrics3.jpg.jpeg" alt="Fabrics">
+        </a>
+    </div>
+    <div class="category-card">
+        <a href="fabric.html" target="_blank">
+            <img src="fabrics2.jpg.jpeg" alt="Fabrics">
             <h3>Fabrics</h3>
-            </a>
-        </div>
-    </section>
+        </a>
+    </div>
+</section>
 
-    <!-- Best Sellers -->
-    <section class="best-sellers">
-        <h2>Best Sellers</h2>
-        <div class="products">
-            <div class="product-card">
-                <img src="shawl.jpg.jpeg" alt="Shawl">
+<section class="best-sellers" id="best">
+    <h2>Best Sellers</h2>
+    <div class="products">
+        <div class="product-card">
+            <a href="shawl.html" target="_blank">
+                <img src="shwal1.jpg.jpeg" alt="Shawl">
                 <div class="info">
                     <h4>Premium Shawl</h4>
                     <p>$45.00</p>
-                    <button>Add to Cart</button>
+                    <button>Shop Now</button>
                 </div>
-            </div>
-            <div class="product-card">
+            </a>
+        </div>
+        <div class="product-card">
+            <a href="chelsea.html" target="_blank">
                 <img src="chelsea.jpg.jpg" alt="Chelsea Shoes">
                 <div class="info">
                     <h4>Chelsea Shoes</h4>
                     <p>$80.00</p>
-                    <button>Add to Cart</button>
+                    <button>Shop Now</button>
                 </div>
-            </div>
-            <div class="product-card">
-                <img src="coat.jpg.jpg" alt="Waistcoat">
+            </a>
+        </div>
+        <div class="product-card">
+            <a href="waistcoat.html" target="_blank">
+                <img src="wasitcoat.jpg.jpeg" alt="Waistcoat">
                 <div class="info">
                     <h4>Elegant Waistcoat</h4>
                     <p>$60.00</p>
-                    <button>Add to Cart</button>
+                    <button>Shop Now</button>
                 </div>
-            </div>
-            <div class="product-card">
-                <img src="fabrics1jpg.jpeg" alt="Fabrics">
+            </a>
+        </div>
+        <div class="product-card">
+            <a href="fabric.html" target="_blank">
+                <img src="fabrics3.jpg.jpeg" alt="Fabrics">
                 <div class="info">
                     <h4>Luxury Fabrics</h4>
                     <p>$30.00</p>
-                    <button>Add to Cart</button>
+                    <button>Shop Now</button>
                 </div>
-            </div>
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer>
-        &copy; 2026 Trendista. All Rights Reserved.
-    </footer>
+<footer>
+    &copy; 2026 Trendista. All Rights Reserved.
+</footer>
 
 </body>
 </html>
